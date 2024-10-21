@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0&display=swap');
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.card-single {
+    display: flex;
+    justify-content: space-around;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 2px;
+}
+.card-single span {
+    color: #8390a2;
+}
+.card-single  i {
+    color: #2E2B41;
+    font-size: 3rem;
+}
+.recent {
+    margin: 3.5rem;
+
+}
+.card {
+    background: #fff;
+    border-radius: 5px;
+}
+
+.card-header, .card-body {
+    padding: 1rem;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+.card-header button {
+    background: #2E2B41;
+    border-radius: 10px;
+    color: #fff;
+    font-size: .8rem;
+    padding: .5rem 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; 
+}
+
+th, td {
+    padding: 10px; 
+    border-bottom: 1px solid #f0f0f0;
+    text-align: left; 
+}
+
+thead th {
+    background-color: #f2f2f2; 
+}
