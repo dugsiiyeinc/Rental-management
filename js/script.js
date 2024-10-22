@@ -6,8 +6,10 @@ const password_input = document.getElementById('password-input')
 const Confirm_Password_input = document.getElementById('Confirm-Password-input')
 const error_message = document.getElementById('error-message')
 
+
 // Add an event listener for the form's submit event
 form.addEventListener('submit', (e) => {
+  e.preventDefault()
   let errors = [] 
 
   if(firstname_input){
@@ -20,10 +22,53 @@ form.addEventListener('submit', (e) => {
   }
 
   if(errors.length > 0){
-    e.preventDefault()
+    // e.preventDefault()
     error_message.innerText  = errors.join(". ")
-  }
+  }else {
+
+    if (firstname_input){
+ 
+       Signup(firstname_input.value, email_input.value, password_input.value);
+      } else {
+       console.log("yeeeeeeeeee")
+       Login(email_input.value, password_input.value);
+     }
+   }
+ 
 })
+
+function Signup(firstname, email, password){
+
+  const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+  const existingUser = storedUsers.find(user => user.email === email );
+  if (existingUser){
+    alert('user with this email already exists.');
+    return
+   }
+
+
+const newUser = { firstname, email, password};
+storedUsers.push(newUser);
+localStorage.setItem('users', JSON.stringify(storedUsers));
+alert('signup successful');
+
+}
+
+function Login(email, password){
+  const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+  const existingUser = storedUsers.find(user => user.email ===email && user.password === password);
+
+  if(existingUser){
+    // alert('login successful! welcome,'+existingUser.firstname );
+    // window.location.href ='../html/signup.html';
+    window.location.replace("../html/dashboard.html")
+  }else {
+    alert('incorrect email or password.please try again.')
+  }
+}
+
 
 // Function to get errors for the signup form
 function getSignupFormErrors(firstname, email, password, ConfirmPassword){
