@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/products.css">
+
     <link rel="stylesheet" href="../css/resposive.css">
 </head>
 <body>
     <div class="sidebar">
         <div class="side-brand">
+
             <h3><i class="fas fa-tools"></i> <span>Rental Management</span></h3>
+            <h3><i class="fas fa-tachometer-alt"></i>Rental Management</h3>
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -20,7 +23,9 @@
                     <a href="../html/dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
                 </li>
                 <li>
+
                     <a href="../html/products.html"><i class="fas fa-tag"></i><span>Products</span></a>
+                    <a href=""><i class="fas fa-tag"></i><span>Products</span></a>
                 </li>
                 <li>
                     <a href=""><i class="fas fa-user"></i><span>Customers</span></a>
@@ -74,7 +79,26 @@
             
             </div>
     
-       
+    
+            <!-- Table to display product details -->
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>quantity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    
+        <!-- Modal for adding/editing products -->
         <div id="productModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
