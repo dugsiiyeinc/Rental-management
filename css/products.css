@@ -1,0 +1,117 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.search-add {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#search {
+    width: 70%;
+    padding: 10px;
+}
+
+#addProductBtn {
+    padding: 10px 20px;
+    background-color: #2E2B41;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+button.edit, button.delete {
+    background-color: #2E2B41;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+button.delete {
+    background-color: #dc3545;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    /* left: ; */
+    top: 0;
+    width: 70%;
+    height: 73%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 5px;
+    
+}
+.modal-content h2 {
+    color: #2E2B41;
+}
+.modal-content #submitbtn {
+    padding: 10px 20px;
+    background-color: #2E2B41;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.close {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

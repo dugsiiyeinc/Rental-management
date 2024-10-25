@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/products.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="side-brand">
+            <h3><i class="fas fa-tachometer-alt"></i>Rental Management</h3>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="../html/dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href=""><i class="fas fa-tag"></i><span>Products</span></a>
+                </li>
+                <li>
+                    <a href=""><i class="fas fa-user"></i><span>Customers</span></a>
+                </li>
+                <li>
+                    <a href=""><i class="fas fa-key"></i><span>Rent</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <header>
+           <h2>
+                <i class="fas fa-tachometer-alt"></i>
+                Hello Iftin 👋
+           </h2>
+           <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="search" placeholder="Search here">
+           </div>
+        </header>
+        <main>
+            <div class="container">
+        
+                <h2>Product Details</h2>
+                <div class="search-add">
+                    <input type="text" id="search" placeholder="Search product">
+                    <button id="addProductBtn">+ Add New</button>
+                </div>
+    
+            <!-- Table to display product details -->
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>quantity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    
+        <!-- Modal for adding/editing products -->
+        <div id="productModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle">Add new Product</h2>
+                <form id="productForm">
+                    <input type="hidden" id="productIndex" /><br>
+                    <label for="product-img">Product Image URL:</label><br>
+                    <input type="url" id="product-img" required><br>
+                    <label for="productName">Product Name:</label><br>
+                    <input type="text" id="productName" required><br>
+                    <label for="productPrice">Price:</label><br>
+                    <input type="number" id="productPrice" required><br>
+                    <label for="productQuantity">Quantity:</label><br>
+                    <input type="number" id="productQuantity" required><br><br>
+    
+    
+    
+                    <button id="submitbtn" type="submit">Add Product</button>
+                </form>
+            </div>
+        </div>
+        </main>
+    </div>
+    <script src="../js/products.js"></script>
+</body>
+</html>
