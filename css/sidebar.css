@@ -21,6 +21,7 @@
     height: 90px;
     padding: 1rem 0 1rem 2rem;
     color: #fff;
+    font-size: 20px;
 }
 .side-brand i {
     padding-right: 1rem;
@@ -49,9 +50,19 @@
     color: #2E2B41;
     border-radius: 30px 0 0 30px;
 }
+.sidebar-menu a:active{
+    background-color: #fff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #2E2B41;
+    border-radius: 30px 0 0 30px;
+}
 .main-content {
     margin-left: 345px;
     
+}
+.menu-icon {
+    display: none;
 }
 header {
     display: flex;
@@ -95,4 +106,9 @@ main {
     padding: 2rem 1.5rem;
     background: #f1f5f9;
     min-height: calc(100vh - 90px);
+}
+
+
+@media (max-width:576px){
+
 }

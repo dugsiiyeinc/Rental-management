@@ -1,0 +1,103 @@
+@media (max-width: 1100px){
+    .sidebar {
+        width: 80px;
+    }
+    .sidebar-menu a span {
+        display: none; 
+    }
+    .side-brand h3 span{
+        display: none;
+    }
+    .main-content {
+        margin-left: 80px;
+    }
+    header {
+        width: calc(100% - 80px);
+        left: 80px;
+    }
+    .search-wrapper {
+        width: 200px; 
+    }
+    .cards {
+        grid-template-columns: 1fr 1fr ; 
+    }
+    .recent {
+        margin: 1rem;
+    }
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .table-responsive table {
+        width: 100%;
+        min-width: 600px; 
+        border-collapse: collapse;
+    }
+    
+    .table-responsive th, .table-responsive td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+@media (max-width: 676px) {
+    .sidebar {
+        display: none;
+        position: fixed;
+        width: 250px;
+        z-index: 200;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background-color: #2E2B41;
+        transition: transform 0.3s ease;
+        transform: translateX(-100%);
+    }
+    .sidebar.active {
+        display: block;
+        transform: translateX(0);
+    }
+    .side-brand h3 span {
+        display: inline;
+        font-size: 15px;
+    }
+    .sidebar-menu a span {
+        display: inline-block; 
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .menu-icon {
+        display: inline-block;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding-right: 0.5rem;
+    }
+    header {
+        width: 100%;
+        left: 0;
+    }
+    .search-wrapper {
+        /* width: 150px;  */
+        display: none;
+    }
+    .cards {
+        grid-template-columns: 1fr; 
+    }
+    .cards .card-single {
+        flex-direction: column;
+        text-align: center;
+    }
+    .recent .card {
+        width: 100%;
+        overflow-x: auto;
+    }
+    .table-responsive {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
