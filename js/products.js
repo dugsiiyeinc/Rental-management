@@ -1,3 +1,4 @@
+
 // JavaScript for handling modal and product management
 
 // Get elements
@@ -10,8 +11,10 @@ const modalTitle = document.getElementById("modalTitle");
 const productIndexInput = document.getElementById("productIndex");
 const searchInput = document.getElementById("search");
 
+
 let products = []; // To store product data
 let editingIndex = -1; // Tracks if we're editing an existing product
+
 
 window.addEventListener("load", () => {
     const storedProducts = localStorage.getItem("products");
@@ -19,6 +22,8 @@ window.addEventListener("load", () => {
         products = JSON.parse(storedProducts);
         updateTable();
     }})
+
+
 
 // Show modal when Add Product button is clicked
 addProductBtn.addEventListener("click", () => {
@@ -33,12 +38,17 @@ closeModal.addEventListener("click", () => {
     modal.style.display = "none";
 });
 
+
 // Close modal when clicking outside of modal
+
 window.addEventListener("click", (event) => {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 });
+
+productForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
 // Add or update product on form submit
 productForm.addEventListener("submit", (event) => {
@@ -59,6 +69,10 @@ productForm.addEventListener("submit", (event) => {
     };
 
     if (editingIndex === -1) {
+       
+        products.push(productData);
+    } else {
+       
         // Add new product
         products.push(productData);
     } else {
@@ -79,7 +93,10 @@ productForm.addEventListener("submit", (event) => {
 
 // Update the table with product data
 function updateTable(filteredProducts = products) {
+    productTableBody.innerHTML = ""; 
+
     productTableBody.innerHTML = ""; // Clear existing rows
+
 
     if (filteredProducts.length === 0) {
         const noDataRow = document.createElement("tr");
@@ -98,6 +115,13 @@ function updateTable(filteredProducts = products) {
             <td>$${product.productPrice}</td>
             <td>${product.productQuantity}</td>
             <td>
+
+                <button class="edit" onclick="editProduct(${index})">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="delete" onclick="deleteProduct(${index})">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 <button class="edit" onclick="editProduct(${index})">Edit</button>
                 <button class="delete" onclick="deleteProduct(${index})">Delete</button>
             </td>
@@ -107,7 +131,9 @@ function updateTable(filteredProducts = products) {
     });
 }
 
+
 // Edit product function
+
 function editProduct(index) {
     const product = products[index];
 
@@ -116,13 +142,13 @@ function editProduct(index) {
     document.getElementById("productPrice").value = product.productPrice;
     document.getElementById("productQuantity").value = product.productQuantity;
     
-
-    editingIndex = index; // Set the index we're editing
-
+    editingIndex = index; 
+  
     modalTitle.textContent = "Edit Product";
     submitbtn.textContent = "Sava product"
     modal.style.display = "block";
 }
+
 
 // Delete product function
 function deleteProduct(index) {

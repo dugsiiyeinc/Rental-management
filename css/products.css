@@ -72,6 +72,9 @@ button.delete {
     display: none;
     position: fixed;
     z-index: 1;
+    top: 0;
+    width: 70%;
+    height: 50%;
     /* left: ; */
     top: 0;
     width: 70%;
