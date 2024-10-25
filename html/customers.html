@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/customer.css">
+    <link rel="stylesheet" href="../css/resposive.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="side-brand">
+            <h3><i class="fas fa-tools"></i> <span>Rental Manmobilement</span></h3>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="../html/dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href=""><i class="fas fa-tag"></i><span>Products</span></a>
+                </li>
+                <li>
+                    <a href="../html/customers.html"><i class="fas fa-user"></i><span>Customers</span></a>
+                </li>
+                <li>
+                    <a href=""><i class="fas fa-key"></i><span>Rent</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <header>
+           <h2>
+            <i class="fas fa-bars menu-icon"></i>
+                Hello Iftin 👋
+           </h2>
+           <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="search" placeholder="Search here">
+           </div>
+        </header>
+        <main>
+            <div class="container">
+                <button class="new-customer-btn">
+                    <i class="fas fa-user-plus"></i> New Customer
+                </button>
+                <div class="table-responsive">
+                    <table class="customer-table">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Farhia</td>
+                                <td>613456723</td>
+                                <td>Warta</td>
+                                <td>
+                                    <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Abdulle</td>
+                                <td>61586877</td>
+                                <td>Hodan</td>
+                                <td>
+                                    <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+ 
+            </div>
+            <div class="model">
+                <button class="cancel-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+        
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name"  required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="mobile">Mobile <span class="required">*</span></label>
+                        <input type="text" id="mobile" name="mobile"  required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="address">Address <span class="required">*</span></label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+        
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>    
+        </main>
+    </div>
+    <script src="../js/responsive.js"></script>
+</body>
+</html>
