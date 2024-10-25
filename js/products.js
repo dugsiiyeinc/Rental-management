@@ -1,6 +1,4 @@
-// JavaScript for handling modal and product management
 
-// Get elements
 const modal = document.getElementById("productModal");
 const addProductBtn = document.getElementById("addProductBtn");
 const closeModal = document.querySelector(".close");
@@ -10,8 +8,8 @@ const modalTitle = document.getElementById("modalTitle");
 const productIndexInput = document.getElementById("productIndex");
 const searchInput = document.getElementById("search");
 
-let products = []; // To store product data
-let editingIndex = -1; // Tracks if we're editing an existing product
+let products = []; 
+let editingIndex = -1; 
 
 window.addEventListener("load", () => {
     const storedProducts = localStorage.getItem("products");
@@ -19,32 +17,28 @@ window.addEventListener("load", () => {
         products = JSON.parse(storedProducts);
         updateTable();
     }})
-
-// Show modal when Add Product button is clicked
 addProductBtn.addEventListener("click", () => {
     modalTitle.textContent = "Add New Product";
     productForm.reset();
-    editingIndex = -1; // Reset editing index
+    editingIndex = -1; 
     modal.style.display = "block";
 });
-
-// Hide modal when close button is clicked
 closeModal.addEventListener("click", () => {
     modal.style.display = "none";
 });
 
-// Close modal when clicking outside of modal
+
 window.addEventListener("click", (event) => {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 });
 
-// Add or update product on form submit
+
 productForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    // Get form values
+    
     const productImage = document.getElementById("product-img").value;
     const productName = document.getElementById("productName").value;
     const productPrice = document.getElementById("productPrice").value;
@@ -59,27 +53,27 @@ productForm.addEventListener("submit", (event) => {
     };
 
     if (editingIndex === -1) {
-        // Add new product
+       
         products.push(productData);
     } else {
-        // Update existing product
+       
         products[editingIndex] = productData;
         editingIndex = -1;
     }
 
-    // Update the table with the new data
+   
     updateTable();
 
     localStorage.setItem("products", JSON.stringify(products));
 
-    // Close the modal and reset the form
+  
     productForm.reset();
     modal.style.display = "none";
 });
 
 // Update the table with product data
 function updateTable(filteredProducts = products) {
-    productTableBody.innerHTML = ""; // Clear existing rows
+    productTableBody.innerHTML = ""; 
 
     if (filteredProducts.length === 0) {
         const noDataRow = document.createElement("tr");
@@ -98,8 +92,14 @@ function updateTable(filteredProducts = products) {
             <td>$${product.productPrice}</td>
             <td>${product.productQuantity}</td>
             <td>
-                <button class="edit" onclick="editProduct(${index})">Edit</button>
-                <button class="delete" onclick="deleteProduct(${index})">Delete</button>
+                
+
+                <button class="edit" onclick="editProduct(${index})">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="delete" onclick="deleteProduct(${index})">
+                        <i class="fas fa-trash"></i>
+                    </button>
             </td>
         `;
 
@@ -107,7 +107,7 @@ function updateTable(filteredProducts = products) {
     });
 }
 
-// Edit product function
+
 function editProduct(index) {
     const product = products[index];
 
@@ -117,17 +117,17 @@ function editProduct(index) {
     document.getElementById("productQuantity").value = product.productQuantity;
     
 
-    editingIndex = index; // Set the index we're editing
+    editingIndex = index; 
 
     modalTitle.textContent = "Edit Product";
     submitbtn.textContent = "Sava product"
     modal.style.display = "block";
 }
 
-// Delete product function
+
 function deleteProduct(index) {
-    products.splice(index, 1); // Remove product from the array
-    updateTable(); // Refresh the table
+    products.splice(index, 1); 
+    updateTable(); 
     localStorage.setItem("products", JSON.stringify(products));
 }
 

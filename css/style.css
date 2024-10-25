@@ -10,7 +10,7 @@
   padding: 0;
 }
 html{
-  /* font-family: Poppins, Segoe UI, sans-serif; */
+ 
   font-family: Arial, sans-serif;
 
   font-size: 12pt;
@@ -19,9 +19,6 @@ html{
 }
 body{
   min-height: 100vh;
-  /* background-image: url(background.jpg); */
-  /* background-size: cover; */
-  /* background-position: right; */
   overflow: hidden;
 
   background-color: #f4f4f4;
