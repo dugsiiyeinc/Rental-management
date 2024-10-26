@@ -59,16 +59,24 @@
 
 
 .modal {
-    position: relative;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 700px;
     display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 70%;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
     
 }
 
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+}
 .cancel-btn {
     position: absolute;
     top: 10px;
@@ -80,37 +88,34 @@
     cursor: pointer;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px; 
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
-
 .form-group label {
-    font-size: 16px;
-    color: #333;
     display: block;
+    font-weight: bold;
     margin-bottom: 5px;
 }
-
-.form-group .required {
-    color: red;
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
-
-.form-group input {
-    width: 80%;
-    border: none;
-    border-bottom: 2px solid #000;
-    padding: 10px 0;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.3s ease;
+.form-group input::placeholder {
+    color: #aaa;
 }
-
 .submit-btn {
     padding: 12px;
     background-color: #2E2B41;
