@@ -55,7 +55,7 @@ alert('signup successful');
 
 }
 
-function Login(email, password){
+function Login(email, password){  
   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
 
   const existingUser = storedUsers.find(user => user.email ===email && user.password === password);
@@ -63,6 +63,7 @@ function Login(email, password){
   if(existingUser){
     // alert('login successful! welcome,'+existingUser.firstname );
     // window.location.href ='../html/signup.html';
+    localStorage.setItem('loggedInUser', JSON.stringify(existingUser.firstname));
     window.location.replace("../html/dashboard.html")
   }else {
     alert('incorrect email or password.please try again.')
