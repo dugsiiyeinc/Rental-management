@@ -143,5 +143,23 @@ searchInput.addEventListener("input", () => {
     updateTable(filteredProducts);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const username = JSON.parse(localStorage.getItem('loggedInUser'));
+    
+    const usernameElement = document.getElementById('username');
+    
+    if (username) {
+      usernameElement.innerText = username;
+    } else {
+      window.location.replace("index.html");
+    };
+});
+document.getElementById('logoutButton').addEventListener('click', function() {
+    localStorage.removeItem('loggedInUser');
+    window.location.replace("index.html");
+});
+
+
+
 // Initial call to populate the table (if any products exist)
 updateTable();

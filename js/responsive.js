@@ -1,4 +1,4 @@
-document.querySelector('.menu-icon').addEventListener('click', function() {
+document.querySelector('.menu-icon').addEventListener('click', function() { 
     document.querySelector('.sidebar').classList.toggle('active');
 });
 const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
