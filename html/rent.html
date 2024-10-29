@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rents</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/rent.css">
+    <link rel="stylesheet" href="../css/resposive.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="side-brand">
+            <h3><i class="fas fa-tools"></i> <span>Rental Management</span></h3>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="../html/dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href="../html/products.html"><i class="fas fa-tag"></i><span>Products</span></a>
+                </li>
+                <li>
+                    <a href="../html/customers.html"><i class="fas fa-user"></i><span>Customers</span></a>
+                </li>
+                <li>
+                    <a href="../html/rent.html"><i class="fas fa-key"></i><span>Rental Orders</span></a>
+                </li>
+                <li>
+                    <a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i><span id="logout">Logout</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <header>
+            <h2>
+                <i class="fas fa-bars menu-icon"></i>
+                    <span id="username"></span>👋
+             </h2>
+           <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="search" placeholder="Search here">
+           </div>
+        </header>
+        <main>
+            <div class="container">
+                <button class="new-rent-btn">
+                    <i class="fas fa-plus"></i> New Rent
+                </button>
+                <div class="table-responsive">
+                    <table class="rent-table">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Customer</th>
+                                <th>Product</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Duration</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                                <th>Satus</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+ 
+            </div>
+            <div class="modal">
+                <div class="modal-content">
+                    <button class="cancel-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+            
+                    <form action="#" method="post" id="form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customer">Customer <span class="required">*</span></label>
+                                <select name="customer" id="customer">
+                                    <option value="">Select a customer</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="product">Product <span class="required">*</span></label>
+                                <select name="product" id="product">
+                                    <option value="">Seclect a Product</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="start-date">Start Date <span class="required">*</span></label>
+                                <input type="date" id="start-date" name="start-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="end-date">End Date <span class="required">*</span></label>
+                                <input type="date" id="end-date" name="end-date" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="duration">Duration <span class="required">*</span></label>
+                                <h3 id="duration">0</h3>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price <span class="required">*</span></label>
+                                <h3 id="price">0</h3>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quantity">Quantity <span class="required">*</span></label>
+                                <input type="number" id="quantity" name="quantity" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="total">Total <span class="required">*</span></label>
+                                <h3 id="total">0</h3>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="status">Status <span class="required">*</span></label>
+                                <select name="status" id="status" disabled>
+                                    <option value="pick">Pickedup</option>
+                                    <option value="return">Returned</option>
+                                </select>
+                            </div>
+                           
+                        </div>
+                        <div class="button-row">
+                            <button type="submit" class="submit-btn">Pickup</button>
+                            <button type="button" class="submit-btn return">Return</button>
+                        </div>
+                    </form>
+                    
+                </div>
+                
+            </div>    
+        </main>
+    </div>
+    <script src="../js/rent.js"></script>
+    <script src="../js/responsive.js"></script>
+</body>
+</html>

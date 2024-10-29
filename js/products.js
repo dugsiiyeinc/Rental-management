@@ -8,25 +8,27 @@ const modalTitle = document.getElementById("modalTitle");
 const productIndexInput = document.getElementById("productIndex");
 const searchInput = document.getElementById("search");
 
-let products = []; 
-let editingIndex = -1; 
+let products = [];
+let editingIndex = -1;
 
 window.addEventListener("load", () => {
     const storedProducts = localStorage.getItem("products");
     if (storedProducts) {
         products = JSON.parse(storedProducts);
         updateTable();
-    }})
+    }
+});
+
 addProductBtn.addEventListener("click", () => {
     modalTitle.textContent = "Add New Product";
     productForm.reset();
     editingIndex = -1; 
     modal.style.display = "block";
 });
+
 closeModal.addEventListener("click", () => {
     modal.style.display = "none";
 });
-
 
 window.addEventListener("click", (event) => {
     if (event.target == modal) {
@@ -34,18 +36,16 @@ window.addEventListener("click", (event) => {
     }
 });
 
-
 productForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    
     const productImage = document.getElementById("product-img").value;
     const productName = document.getElementById("productName").value;
     const productPrice = document.getElementById("productPrice").value;
-    const productQuantity = document.getElementById('productQuantity').value;
+    const productQuantity = document.getElementById("productQuantity").value;
 
-
-    const productData = {
+    let productData = {
+        id: editingIndex === -1 ? generateProductId() : products[editingIndex].id,
         productName,
         productImage,
         productPrice,
@@ -53,27 +53,22 @@ productForm.addEventListener("submit", (event) => {
     };
 
     if (editingIndex === -1) {
-       
         products.push(productData);
     } else {
-       
         products[editingIndex] = productData;
         editingIndex = -1;
     }
 
-   
     updateTable();
-
     localStorage.setItem("products", JSON.stringify(products));
 
-  
     productForm.reset();
     modal.style.display = "none";
 });
 
 // Update the table with product data
 function updateTable(filteredProducts = products) {
-    productTableBody.innerHTML = ""; 
+    productTableBody.innerHTML = "";
 
     if (filteredProducts.length === 0) {
         const noDataRow = document.createElement("tr");
@@ -86,20 +81,18 @@ function updateTable(filteredProducts = products) {
         const row = document.createElement("tr");
 
         row.innerHTML = `
-            <td>${index + 1}</td>
+            <td>${product.id}</td>
             <td><img src="${product.productImage}" alt="Product Image" width="60"></td>
             <td>${product.productName}</td>
             <td>$${product.productPrice}</td>
             <td>${product.productQuantity}</td>
             <td>
-                
-
-                <button class="edit" onclick="editProduct(${index})">
-                        <i class="fas fa-edit"></i>
-                    </button>
-                    <button class="delete" onclick="deleteProduct(${index})">
-                        <i class="fas fa-trash"></i>
-                    </button>
+                <button class="edit" onclick="editProduct(${product.id})">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="delete" onclick="deleteProduct(${product.id})">
+                    <i class="fas fa-trash"></i>
+                </button>
             </td>
         `;
 
@@ -107,27 +100,27 @@ function updateTable(filteredProducts = products) {
     });
 }
 
+function editProduct(id) {
+    const productIndex = products.findIndex(product => product.id === id);
+    if (productIndex === -1) return;
 
-function editProduct(index) {
-    const product = products[index];
+    const product = products[productIndex];
 
     document.getElementById("product-img").value = product.productImage;
     document.getElementById("productName").value = product.productName;
     document.getElementById("productPrice").value = product.productPrice;
     document.getElementById("productQuantity").value = product.productQuantity;
-    
 
-    editingIndex = index; 
+    editingIndex = productIndex;
 
     modalTitle.textContent = "Edit Product";
-    submitbtn.textContent = "Sava product"
+    submitbtn.textContent = "Save Product";
     modal.style.display = "block";
 }
 
-
-function deleteProduct(index) {
-    products.splice(index, 1); 
-    updateTable(); 
+function deleteProduct(id) {
+    products = products.filter(product => product.id !== id);
+    updateTable();
     localStorage.setItem("products", JSON.stringify(products));
 }
 
@@ -145,21 +138,25 @@ searchInput.addEventListener("input", () => {
 
 document.addEventListener('DOMContentLoaded', function() {
     const username = JSON.parse(localStorage.getItem('loggedInUser'));
-    
     const usernameElement = document.getElementById('username');
     
     if (username) {
-      usernameElement.innerText = username;
+        usernameElement.innerText = username;
     } else {
-      window.location.replace("index.html");
-    };
+        window.location.replace("index.html");
+    }
 });
+
 document.getElementById('logoutButton').addEventListener('click', function() {
     localStorage.removeItem('loggedInUser');
     window.location.replace("index.html");
 });
 
-
+function generateProductId() {
+    const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+    const maxId = storedProducts.length > 0 ? Math.max(...storedProducts.map(product => product.id || 0)) : 0;
+    return maxId + 1;
+}
 
 // Initial call to populate the table (if any products exist)
 updateTable();
