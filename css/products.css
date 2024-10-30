@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-    padding: 20px;
+    padding: 10px;
 }
 
 h1 {
@@ -31,6 +31,13 @@ h1 {
 }
 
 /* Table styles */
+.table-container {
+    max-height: 400px; /* Set maximum height for scrolling */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    border: 1px solid #ddd; /* Optional: border for container */
+    margin-top: 20px; /* Add some space from top */
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -45,6 +52,12 @@ table, th, td {
 th, td {
     padding: 10px;
     text-align: center;
+}
+table th {
+    position: sticky;
+    top: 0;
+    background-color: #f2f2f2; 
+    z-index: 1;
 }
 .action-buttons {
     display: flex;
@@ -91,6 +104,26 @@ button.delete {
 }
 .modal-content h2 {
     color: #2E2B41;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.form-group input::placeholder {
+    color: #aaa;
 }
 .modal-content #submitbtn {
     padding: 10px 20px;
