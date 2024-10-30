@@ -193,3 +193,16 @@ function generateRentId() {
     const maxId = rents.length > 0 ? Math.max(...rents.map(rent => rent.id)) : 0;
     return maxId + 1; // Return the next ID in sequence
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const username = JSON.parse(localStorage.getItem('loggedInUser'));
+    
+    const usernameElement = document.getElementById('username');
+    
+    if (username) {
+      usernameElement.innerText = username;
+    } else {
+      window.location.replace("../html/signup.html");
+    };
+    });
