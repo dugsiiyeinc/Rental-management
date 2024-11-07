@@ -143,14 +143,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (username) {
         usernameElement.innerText = username;
     } else {
-        window.location.replace("index.html");
+        window.location.replace("login.html");
     }
 });
 
-document.getElementById('logoutButton').addEventListener('click', function() {
-    localStorage.removeItem('loggedInUser');
-    window.location.replace("index.html");
-});
 
 function generateProductId() {
     const storedProducts = JSON.parse(localStorage.getItem("products")) || [];

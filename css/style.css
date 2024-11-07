@@ -17,7 +17,7 @@ html{
   color: var(--text-color);
   text-align: center;
 }
-body{
+/* body{
   min-height: 100vh;
   overflow: hidden;
 
@@ -25,14 +25,14 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
+  
   margin: 0;
-}
+} */
 .wrapper{
   box-sizing: border-box;
   background-color: var(--base-color);
-  height: 100vh;
-  width: max(40%, 600px);
+  height: 70vh;
+  /* width: max(40%, 600px); */
   padding: 10px;
   border-radius: 0 20px 20px 0;
   display: flex;
@@ -123,9 +123,9 @@ a{
   text-decoration: none;
   color: var(--accent-color);
 }
-a:hover{
+/* a:hover{
   text-decoration: underline;
-}
+} */
 @media(max-width: 1100px){
   .wrapper{
     width: min(600px, 100%);
