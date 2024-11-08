@@ -175,17 +175,17 @@ remainder.onclick = async function () {
     const options = {
         method: 'POST',
         headers: {
-            'x-rapidapi-key': 'a21fe564b5msh973aae8511b10e7p153f98jsnd762b9389b0a',
+            'x-rapidapi-key': '46b2a4aad7msh87020d202b03760p16ee47jsn5b57cc627e46',
             'x-rapidapi-host': 'rapidmail.p.rapidapi.com',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             ishtml: 'false',
             sendto: customerId.email,
-            name: 'Put Any Custom Name here',
-            replyTo: 'admin@go-mail.us.to',
+            name: 'RentEase',
+            replyTo: 'admin@gmail.com',
             title: 'Reminder to Return Rented Products',
-            body: 'Dear Customer, this is a reminder to return your rented products as soon as possible. Please contact us if you have any questions or need assistance. Thank you!'
+            body: 'Dear Customer, this is a reminder to return your rented products as soon as possible. Thank you!'
         })
     };
 
