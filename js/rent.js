@@ -14,6 +14,7 @@ const form = document.querySelector("#form");
 const tbody = document.querySelector("tbody");
 const closeModal = document.querySelector(".cancel-btn");
 const returnBtn = document.querySelector(".return");
+const remainder = document.querySelector(".remainder");
 
 let editMode = false;       
 let editRentId = null;  
@@ -132,7 +133,14 @@ function editRent(rentId) {
     document.querySelector(".submit-btn").textContent = "Update"; 
     editMode = true;        
     editRentId = rentId; 
-    modal.style.display = "block"; 
+    modal.style.display = "block";
+    if (rentStatus.value == "return"){
+        returnBtn.style.display = "none"
+    }else {
+        returnBtn.style.display = "inline-block"
+    }
+    remainder.style.display = "inline-block"
+    
 }
 
 function updateRent(rent) {
@@ -149,13 +157,53 @@ function returnProducts(){
     console.log(products[Index])
     products[Index].productQuantity += parseInt(quantity.value); 
     localStorage.setItem("products", JSON.stringify(products)); 
+  
+    const rents = JSON.parse(localStorage.getItem("rents")) || [];
+    const rentIndex = rents.findIndex(rent => rent.id === editRentId);
+    rents[rentIndex].status = "Returned";
+    rents[rentIndex].status_value = "return"
     
+    // Use the updateRent function to save changes
+    updateRent(rents[rentIndex]);
+   
     loadRents()
+}
+remainder.onclick = async function () {
+    const customers = JSON.parse(localStorage.getItem("customers")) || [];
+    const customerId = customers.find((cust) => cust.id == customer.value);
+    const url = 'https://rapidmail.p.rapidapi.com/';
+    const options = {
+        method: 'POST',
+        headers: {
+            'x-rapidapi-key': 'a21fe564b5msh973aae8511b10e7p153f98jsnd762b9389b0a',
+            'x-rapidapi-host': 'rapidmail.p.rapidapi.com',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ishtml: 'false',
+            sendto: customerId.email,
+            name: 'Put Any Custom Name here',
+            replyTo: 'admin@go-mail.us.to',
+            title: 'Reminder to Return Rented Products',
+            body: 'Dear Customer, this is a reminder to return your rented products as soon as possible. Please contact us if you have any questions or need assistance. Thank you!'
+        })
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        alert(result.message)
+        console.log(customerId.email);
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 returnBtn.addEventListener("click", returnProducts)
 btn.addEventListener("click", () => {
     modal.style.display = "block";
+    returnBtn.style.display = "none"
+    remainder.style.display = "none"
 });
 startDate.addEventListener("change", getDaysBetweenDates)
 endDate.addEventListener('change', getDaysBetweenDates)

@@ -101,3 +101,28 @@
         -webkit-overflow-scrolling: touch;
     }
 }
+@media (max-width: 768px) {
+    .modal {
+        width: 80%; 
+        height: 60%; 
+    }
+    
+    .modal-content {
+        width: 90%; 
+    }
+}
+
+
+@media (max-width: 576px) {
+    .modal {
+        margin-top: 100px;
+        margin-right: 40px;
+        width: 95%; 
+        height: 70%; 
+    }
+
+    .modal-content {
+        width: 95%; 
+        padding: 15px; 
+    }
+}
