@@ -107,15 +107,7 @@ main {
     background: #f1f5f9;
     min-height: calc(100vh - 90px);
 }
-/* #logoutButton {
-    width: 90px;
-    padding: 10px;
-    margin-left: 45px;
-    background-color: #2E2B41;
-    color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-} */
+
 
 
 @media (max-width:576px){
