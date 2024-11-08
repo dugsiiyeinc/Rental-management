@@ -52,7 +52,7 @@ const newUser = { firstname, email, password};
 storedUsers.push(newUser);
 localStorage.setItem('users', JSON.stringify(storedUsers));
 alert('signup successful');
-
+window.location.replace("../login.html")
 }
 
 function Login(email, password){  
